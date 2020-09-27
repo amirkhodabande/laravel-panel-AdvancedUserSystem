@@ -4,9 +4,11 @@ This is a small panel admin with laravel ... TDD check our test foolder!
 
 ## Amir Khodabande
 
-# Url
+# Url - Admin
 
 -   the admin url is => /admin/dashbord
+-   Email of boss : **brown.joanie@example.net**
+-   Password : **password**
 
 # Database
 
