@@ -1,4 +1,4 @@
-<p align="center>
+<p align="center">
 This is a small panel admin with laravel ... TDD check our test foolder!
 </p>
 ##Amir Khodabande
@@ -16,3 +16,8 @@ This is a small panel admin with laravel ... TDD check our test foolder!
     4 => user : a normal user
 
 -   Database is Sqlite
+
+# Email
+
+the emails are in queue for runing theme :
+`php artisan queue:work`
