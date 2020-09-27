@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Uploads;
 use Faker\Generator as Faker;
+use {{ namespacedModel }};
 
-$factory->define(Uploads::class, function (Faker $faker) {
+$factory->define({{ model }}::class, function (Faker $faker) {
     return [
         //
     ];

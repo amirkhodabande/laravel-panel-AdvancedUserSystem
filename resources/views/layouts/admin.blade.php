@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -93,6 +94,19 @@
                         <li><a class="" href="{{ route('users.index') }}">لیست کاربران</a></li>
                     </ul>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon-upload"></i>
+                        <span>مرکز آپلود</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="{{ route('uploads.index') }}">لیست اپلود ها</a></li>
+                        <li><a class="" href="{{ route('uploads.create') }}">اپلود تصویر</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a class="" href="login.html">
                         <i class="icon-user"></i>

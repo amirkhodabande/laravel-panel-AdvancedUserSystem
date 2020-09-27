@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::search($request->all());;
+        $users = User::search($request->all());
         return view('admin/user/index', compact('users'));
     }
 
@@ -43,16 +43,5 @@ class UserController extends Controller
             $l = 'users.index';
             return  view('admin.alert', compact('t', 'm', 'l'));
         }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
