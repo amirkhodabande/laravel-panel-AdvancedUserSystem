@@ -1,5 +1,5 @@
 <p align="center">
-This is a small panel admin with laravel ... TDD check our test foolder!
+This is a small panel admin with laravel ... TDD check our tests foolder and use or develop theme
 </p>
 
 ## Amir Khodabande
@@ -9,6 +9,10 @@ This is a small panel admin with laravel ... TDD check our test foolder!
 -   the admin url is => /admin/dashbord
 -   Email of boss : **brown.joanie@example.net**
 -   Password : **password**
+
+# Files
+    Run    `php artisan storage:link` => if it say the link has been created and again the images are hidden in the admin panel...
+    - Delete the storage foolder in public foolder and try again => public/storage
 
 # Database
 
