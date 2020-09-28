@@ -12,12 +12,12 @@ This is a small panel admin with laravel ... TDD check our tests foolder and use
 
 # Files
 
-    Run   :
+-   Run :
+    `php artisan storage:link`
 
-     `php artisan storage:link`
+         => if it say the link has been created and again the images are hidden in the admin panel...
 
-     => if it say the link has been created and again the images are hidden in the admin panel...
-    - Delete the storage foolder in public foolder and try again => public/storage
+-   Delete the storage foolder in public foolder and try again => public/storage
 
 # Database
 
