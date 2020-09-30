@@ -16,7 +16,7 @@ class Upload extends Model
                 $user = $user->where('title', 'like', '%' . $data['title'] . '%')
                     ->where('upload_type', 'like', '%' . $data['upload_type'] . '%');
         }
-        $user = $user->paginate(3);
+        $user = $user->paginate(8);
         return $user;
     }
 }

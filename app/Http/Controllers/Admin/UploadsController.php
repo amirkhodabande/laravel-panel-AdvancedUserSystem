@@ -17,7 +17,6 @@ class UploadsController extends Controller
     public function index(Request $request)
     {
         $uploads = Upload::search($request->all());
-        // $uploads = Upload::orderBy(['created_at', 'desc'])->all();
         return view('admin.uploads.index', compact('uploads'));
     }
 
@@ -57,7 +56,8 @@ class UploadsController extends Controller
 
     public function destroy(Upload $upload)
     {
-        if (auth()->user()->user_type == 'boss' || auth()->user()->user_type == 'admin') {
+        $user = auth()->user()->user_type;
+        if ($user == 'boss' || $user == 'admin') {
             if (file_exists($upload->url)) {
                 unlink($upload->url);
             }

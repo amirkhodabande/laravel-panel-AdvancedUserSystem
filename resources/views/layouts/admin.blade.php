@@ -47,7 +47,7 @@
                 @endphp
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" src="img/avatar1_small.jpg">
+
                         <span class="username">{{ $user->name }}</span>
                         <b class="caret"></b>
                     </a>
@@ -107,6 +107,18 @@
                     </ul>
                 </li>
 
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon-archive"></i>
+                        <span>صفحات</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="{{ route('pager.index') }}">لیست صفحه ها</a></li>
+                        <li><a class="" href="{{ route('pager.create') }}">ساخت صفحه جدید</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a class="" href="login.html">
                         <i class="icon-user"></i>
@@ -136,6 +148,10 @@
 <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
+
+
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 
 <!--common script for all pages-->
 <script src="{{ asset('admin/js/common-scripts.js') }}"></script>

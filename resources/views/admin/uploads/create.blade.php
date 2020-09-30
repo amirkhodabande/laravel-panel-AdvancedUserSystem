@@ -10,7 +10,7 @@
         {{ csrf_field() }}
 
         <div class="form-group ">
-          <input type="text" class="form-control" placeholder="عنوان عکس  را وارد کنید" name="title">
+          <input type="text" class="form-control" placeholder="عنوان عکس  را وارد کنید" name="title" value="{{ old('title') }}">
           @if ($errors->has('title'))
           <span class="alert alert-danger form-control">
                   <small> {{ $errors->first('title') }}</small>
@@ -20,7 +20,7 @@
 
 
          <div class="form-group ">
-          <input type="file" class="form-control" name="url">
+          <input type="file" class="form-control" name="url" value="{{ old('url') }}">
           @if ($errors->has('url'))
           <span class="alert alert-danger form-control">
                   <small> {{ $errors->first('url') }}</small>

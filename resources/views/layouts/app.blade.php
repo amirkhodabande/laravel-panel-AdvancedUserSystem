@@ -64,6 +64,14 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    @php
+                                        $user = auth()->user()->user_type;
+                                    @endphp
+                                    @if($user == 'boss' || $user == 'admin' || $user == 'reporter')
+                                        <a class="dropdown-item" href="{{ route('dashbord.index') }}">
+                                        Panel
+                                    </a>
+                                     @endif
                                 </div>
                             </li>
                         @endguest

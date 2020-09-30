@@ -52,10 +52,9 @@
                                 {{csrf_field()}}
                                 <button type="submit" class="btn btn-danger"><i class="icon-remove"></i></button>
                             </form>
-                        {{-- <a href="{{ route('uploads.destroy', $upload->id) }}" class="btn btn-danger"><i class="icon-remove"></i></a></td> --}}
+                    </td>
                 </tr>
             @endforeach
-            {{-- <button class="btn btn-sm btn-primary"><i class="icon-edit"></i></button> --}}
         </table>
         <div class="text-center">
             {{ $uploads->links() }}
