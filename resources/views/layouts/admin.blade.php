@@ -149,7 +149,7 @@
 <script src="{{ asset('admin/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('admin/js/jquery.nicescroll.js') }}" type="text/javascript"></script>
 
-
+<!-- If you want to user another one you can change this .... -->
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 

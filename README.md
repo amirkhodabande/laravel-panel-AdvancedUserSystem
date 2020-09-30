@@ -1,5 +1,6 @@
 <p align="center">
 This is a small panel admin with laravel ... TDD check our tests foolder and use or develop theme
+*Be online*
 </p>
 
 ## Amir Khodabande
@@ -33,3 +34,7 @@ This is a small panel admin with laravel ... TDD check our tests foolder and use
 
 the emails are in queue for runing theme :
 `php artisan queue:work`
+
+# Pagemaker
+
+I use _cdn.tiny.cloud_, the link is in 'layouts.admin.blade.php'
