@@ -1,5 +1,5 @@
-![alt](https://https://https://github.com/amirkhodabande/laravel-panel/blob/master/public/imageforgit/1.png)
-
+![alt](https://github.com/amirkhodabande/laravel-panel/blob/master/public/imageforgit/1.png)
+        
 <p align="center">
 This is a small panel admin with laravel ... TDD check our tests foolder and use or develop theme
 *Be online*
