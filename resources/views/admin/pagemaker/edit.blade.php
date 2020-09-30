@@ -31,7 +31,10 @@
         </div>
 
         <div class="form-group ">
+
+            <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
             <script>tinymce.init({selector:'textarea'});</script>
+
             <label for="body">متن اصلی</label>
             <textarea id="body" class="form-control" name="body" rows="10">{{ $pager->body }}</textarea>
             @if ($errors->has('body'))

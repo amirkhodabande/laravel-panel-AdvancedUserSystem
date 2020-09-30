@@ -37,4 +37,4 @@ the emails are in queue for runing theme :
 
 # Pagemaker
 
-I use _cdn.tiny.cloud_, the link is in 'layouts.admin.blade.php'
+I use cdn.tiny.cloud
