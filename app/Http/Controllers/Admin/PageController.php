@@ -72,7 +72,7 @@ class PageController extends Controller
         } else {
             $t = 'f';
             $m = "مهدودیت دسترسی شما";
-            $l = 'uploads.index';
+            $l = 'pager.index';
             return  view('admin.alert', compact('t', 'm', 'l'));
         }
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class DashbordController extends Controller
      */
     public function index()
     {
-        return view('admin.dashbord');
+        $setting = Setting::first();
+        return view('admin.dashbord', compact('setting'));
     }
 
     /**

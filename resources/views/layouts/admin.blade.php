@@ -119,6 +119,19 @@
                     </ul>
                 </li>
 
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon-code"></i>
+                        <span>عناصر</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                           <li><a class="" href="{{ route('setting.edit', 1) }}">عناصر ثابت</a></li>
+                        <li><a class="" href="{{ route('tab.index') }}">لیست سر صفحه ها</a></li>
+                        <li><a class="" href="{{ route('tab.create') }}">افزودن سر صفحه جدید</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a class="" href="login.html">
                         <i class="icon-user"></i>
