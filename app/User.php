@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -48,18 +49,13 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function isAdmin()
-    {
-        return $this->user_type == 'boss' || $this->user_type == 'admin' || $this->user_type == 'reporter';
-    }
-
     public static function search($data)
     {
-        $user = User::where('user_type', '!=', 'boss')->orderBy('user_type', 'asc');
+        $user = User::orderBy('created_at', 'desc');
         if (sizeof($data) > 0) {
-            if (array_key_exists('name', $data) && array_key_exists('user_type', $data))
+            if (array_key_exists('name', $data) && array_key_exists('email', $data))
                 $user = $user->where('name', 'like', '%' . $data['name'] . '%')
-                    ->where('user_type', 'like', '%' . $data['user_type'] . '%');
+                    ->where('email', 'like', '%' . $data['email'] . '%');
         }
         $user = $user->paginate(8);
         return $user;

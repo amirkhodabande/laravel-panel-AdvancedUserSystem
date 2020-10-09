@@ -67,11 +67,11 @@
                                     @php
                                         $user = auth()->user()->user_type;
                                     @endphp
-                                    @if($user == 'boss' || $user == 'admin' || $user == 'reporter')
+                                    @role('admin')
                                         <a class="dropdown-item" href="{{ route('dashbord.index') }}">
                                         Panel
                                     </a>
-                                     @endif
+                                     @endrole
                                 </div>
                             </li>
                         @endguest

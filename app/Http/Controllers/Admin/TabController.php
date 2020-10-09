@@ -28,8 +28,15 @@ class TabController extends Controller
      */
     public function create()
     {
-        $tabs = Tab::all();
-        return view('admin.tabs.create', compact('tabs'));
+        if (auth()->user()->can('add-tab')) {
+            $tabs = Tab::all();
+            return view('admin.tabs.create', compact('tabs'));
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -40,8 +47,7 @@ class TabController extends Controller
      */
     public function store(Request $request)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('add-tab')) {
             $request->validate([
                 'title' => 'required',
                 'url' => 'required',
@@ -54,9 +60,9 @@ class TabController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'tab.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 
@@ -68,8 +74,7 @@ class TabController extends Controller
      */
     public function edit(Tab $tab)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('edit-tab')) {
             $tabs = Tab::all();
             return view('admin.tabs.edit', compact('tab', 'tabs'));
             $t = 's';
@@ -78,9 +83,9 @@ class TabController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'tab.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 
@@ -93,8 +98,7 @@ class TabController extends Controller
      */
     public function update(Request $request, Tab $tab)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('edit-tab')) {
             $request->validate([
                 'title' => 'required',
                 'url' => 'required',
@@ -107,9 +111,9 @@ class TabController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'tab.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 
@@ -121,8 +125,7 @@ class TabController extends Controller
      */
     public function destroy(Tab $tab)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('edit-tab')) {
             $tab->delete();
 
             $t = 's';
@@ -131,9 +134,9 @@ class TabController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'tab.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 }

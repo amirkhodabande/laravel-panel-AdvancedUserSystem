@@ -17,7 +17,14 @@ class SettingsController extends Controller
      */
     public function edit(Setting $setting)
     {
-        return view('admin.settings.edit', compact('setting'));
+        if (auth()->user()->can('edit-static-setting')) {
+            return view('admin.settings.edit', compact('setting'));
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -29,8 +36,7 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Setting $setting)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss') {
+        if (auth()->user()->can('edit-static-setting')) {
             $request->validate([
                 'company' => 'required',
                 'logo' => 'required',
@@ -45,9 +51,9 @@ class SettingsController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'dashbord.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 }

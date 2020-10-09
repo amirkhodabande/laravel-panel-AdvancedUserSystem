@@ -27,7 +27,14 @@ class UploadsController extends Controller
      */
     public function create()
     {
-        return view('admin.uploads.create');
+        if (auth()->user()->can('upload-file')) {
+            return view('admin.uploads.create');
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -38,9 +45,16 @@ class UploadsController extends Controller
      */
     public function store(UploadsRequest $request)
     {
-        // All functions are in UploadsRequest
-        return $request->uploadImage()
-            ->storeimage();
+        if (auth()->user()->can('upload-file')) {
+            // All functions are in UploadsRequest
+            return $request->uploadImage()
+                ->storeimage();
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -56,8 +70,7 @@ class UploadsController extends Controller
 
     public function destroy(Upload $upload)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user == 'admin') {
+        if (auth()->user()->can('destroy-file')) {
             if (file_exists($upload->url)) {
                 unlink($upload->url);
             }
@@ -69,9 +82,9 @@ class UploadsController extends Controller
             return  view('admin.alert', compact('t', 'm', 'l'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'uploads.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 }

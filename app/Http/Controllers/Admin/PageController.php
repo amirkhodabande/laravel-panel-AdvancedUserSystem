@@ -28,7 +28,14 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('admin.pagemaker.create');
+        if (auth()->user()->can('create-page')) {
+            return view('admin.pagemaker.create');
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -39,7 +46,14 @@ class PageController extends Controller
      */
     public function store(PageRequest $request)
     {
-        return $request->storepage();
+        if (auth()->user()->can('create-page')) {
+            return $request->storepage();
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -50,7 +64,14 @@ class PageController extends Controller
      */
     public function edit(Page $pager)
     {
-        return view('admin.pagemaker.edit', compact('pager'));
+        if (auth()->user()->can('edit-page')) {
+            return view('admin.pagemaker.edit', compact('pager'));
+        } else {
+            $t = 'f';
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
+        }
     }
 
     /**
@@ -62,8 +83,7 @@ class PageController extends Controller
      */
     public function update(PageUpdateRequest $request, Page $pager)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('edit-page')) {
             $request->updatepage($pager);
             $t = 's';
             $m = "ویرایش صفحه";
@@ -71,9 +91,9 @@ class PageController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'pager.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 
@@ -85,8 +105,7 @@ class PageController extends Controller
      */
     public function destroy(Page $pager)
     {
-        $user = auth()->user()->user_type;
-        if ($user == 'boss' || $user  == 'admin') {
+        if (auth()->user()->can('edit-page')) {
             $pager->delete();
             $t = 's';
             $m = "حذف صفحه";
@@ -94,9 +113,9 @@ class PageController extends Controller
             return  view('admin.alert', compact('m', 'l', 't'));
         } else {
             $t = 'f';
-            $m = "مهدودیت دسترسی شما";
-            $l = 'uploads.index';
-            return  view('admin.alert', compact('t', 'm', 'l'));
+            $m = 'مهدودیت سطح دسترسی';
+            $l = 'users.index';
+            return view('admin.alert', compact('t', 'm', 'l'));
         }
     }
 }

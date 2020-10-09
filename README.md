@@ -1,8 +1,7 @@
 ![alt](https://github.com/amirkhodabande/laravel-panel/blob/master/public/imageforgit/1.png)
-        
-<p align="center">
-This is a small panel admin with laravel ... TDD check our tests foolder and use or develop theme
-*Be online*
+
+<p align="center" dir="rtl">
+پنل مدیریت محتوا ساخته شده با لاراول
 </p>
 
 ## Amir Khodabande
@@ -15,28 +14,27 @@ This is a small panel admin with laravel ... TDD check our tests foolder and use
 
 # Files
 
--   Run :
+<div dir="rtl">
+-   اجرا کنید :
     `php artisan storage:link`
 
-         => if it say the link has been created and again the images are hidden in the admin panel...
+         =>اگر در اجرای این دستور با خطا رو برو شدید
 
--   Delete the storage foolder in public foolder and try again => public/storage
+</div>
 
-# Database
-
--   As default we have 4 type of user :
-    1 => boss : its the owner and can do any thing
-    2 => admin : only cant change other users type
-    3 => reporter : only can add page and ....
-    4 => user : a normal user
-
--   Database is Sqlite
+<div dir="rtl">
+-   لطفا پوشه public/storage را حذف کنید و دوباره امتحان کنید
+</div>
 
 # Email
 
-the emails are in queue for runing theme :
-`php artisan queue:work`
+<div dir="rtl">
+  ایمیل ها برای ارسال در صف قرار میگرند اگر قصد ارسال را دارید دستور را اجرا کنید
+    `php artisan queue:work`
+</div>
 
 # Pagemaker
 
-I use cdn.tiny.cloud
+<div dir="rtl">
+  از cdn.tiny.cloud استفاده شده است
+</div>

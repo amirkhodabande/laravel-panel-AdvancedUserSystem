@@ -81,7 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    The default Admin <hr>
+                    Email: bking@example.org <br>
+                    Password: password
                 </div>
 
                 <div class="links">
